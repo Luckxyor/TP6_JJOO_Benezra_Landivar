@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using JJOO_Benezra_Landivar.Models;
+using TP6_JJOO_Benezra_Landivar.Models;
 
-namespace JJOO_Benezra_Landivar.Controllers;
+namespace TP6_JJOO_Benezra_Landivar.Controllers;
 
 public class HomeController : Controller
 {

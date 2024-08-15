@@ -1,4 +1,4 @@
-namespace JJOO_Benezra_Landivar.Models;
+namespace TP6_JJOO_Benezra_Landivar.Models;
 
 public class ErrorViewModel
 {
