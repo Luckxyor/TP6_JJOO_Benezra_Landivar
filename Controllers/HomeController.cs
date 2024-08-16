@@ -17,4 +17,46 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult Deportes(){
+        ViewBag.ListaDeportes=BD.ListarDeporte();
+        return View();
+    }
+
+    public IActionResult Paises(){
+        ViewBag.ListaPaises=BD.ListarPaises();
+        return View();
+    }
+
+    public IActionResult VerDetalleDeporte(int idDeporte){
+        ViewBag.DeporteElegido=BD.VerInfoDeporte(idDeporte);
+        return View("VerDetalleDeporte");
+    }
+
+    public IActionResult VerDetallePais(int idPais){
+        ViewBag.PaisElegido=BD.VerInfoPais(idPais);
+        return View("VerDetallePais");
+    }
+
+    public IActionResult VerDetalleDeportista(int idDeportista){
+        ViewBag.DeportistaElegido=BD.VerInfoPais(idDeportista);
+        return View("VerDetalleDeportista");
+    }
+
+    public IActionResult AgregarDeportista(){
+        return View("AgregarDeportista");
+    }
+
+    [HttpPost]
+    public IActionResult GuardarDeportista(Deportista dep){
+        return View("Index");
+    }
+
+    public IActionResult EliminarDeportista(int idCandidato){
+        return View();
+    }
+
+    public IActionResult Creditos(){
+        return View();
+    }
 }

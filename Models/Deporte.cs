@@ -4,4 +4,8 @@ class Deporte{
 
     public Deporte(){
     }
+    public Deporte(string nombre,string foto){
+        Nombre=nombre;
+        Foto=foto;
+    }
 }

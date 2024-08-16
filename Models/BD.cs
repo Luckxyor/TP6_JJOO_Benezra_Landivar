@@ -1,7 +1,7 @@
 using System.Data.SqlClient;
 using Dapper;
 static class BD{
-    private static string _connectionString="@Server=localhost; DataBase=JJOO; Trusted_Connection=True;";
+    private static string _connectionString="Server=localhost; DataBase=JJOO; Trusted_Connection=True;";
 
     public static void AgregarDeportista(Deportista dep){
         string sql="Insert Into Deportistas (IdDeportista, Apellido, Nombre, FechaNacimiento, Foto, IdPais, IdDeporte) values (@pIdDeportista, @pApellido, @pNombre, @pFechaNacimiento, @pFoto, @pIdPais, @pIdDeporte)";
@@ -46,6 +46,14 @@ static class BD{
             ListaPaises = conn.Query<Pais>(sql).ToList();
         }
         return ListaPaises;
+    }
+    public static List<Deporte> ListarDeporte(){
+        List<Deporte> ListaDeportes = new List<Deporte>();
+        using(SqlConnection conn = new SqlConnection(_connectionString)){
+            string sql="SELECT * FROM Deportes";
+            ListaDeportes = conn.Query<Deporte>(sql).ToList();
+        }
+        return ListaDeportes;
     }
     public static List<Deportista> ListarDeportistasDeporte(int idDeporte){
         List<Deportista> ListaDeportista = new List<Deportista>();

@@ -4,4 +4,9 @@ class Pais{
     public DateTime FechaFundacion {get; set;}
     public Pais(){
     }
+    public Pais(string nombre,string bandera,DateTime fechaFundacion){
+        Nombre = nombre;
+        Bandera = bandera;
+        FechaFundacion = fechaFundacion;
+    }
 }
