@@ -18,6 +18,7 @@ header{
   height: 100vh;
   box-sizing: border-box;
   background-image: url(https://estaticos-cdn.prensaiberica.es/clip/936c0394-b6a0-46ee-8176-ef866601198a_source-aspect-ratio_default_0.jpg);
+  background-position: center;
   box-shadow: 0 10px 30px 20px #0007;
   margin-bottom: 20px;
 }
@@ -25,7 +26,7 @@ header{
 .main-nav{
   position: fixed;
   width: 70%;
-  background-color: #0009;
+  background-color: #fff9;
   border-radius: 15px;
   top:5px;
   left: 15%;
@@ -35,22 +36,29 @@ header{
   display: flex;
   justify-content: space-evenly;
 }
-.main-nav .item a{
+.main-nav a{
   display: inline-block;
-  padding: 3px 9px;
-  color: #fff;
+  padding: 0 3px;
+  border-radius: 15px;
+  transition-property: background-color;
+  transition-duration: 0.4s;
+}
+.main-nav .item a{
+  padding: 5px 11px;
+  color: #000;
   text-decoration: none;
 }
+.main-nav a:hover{
+  background-color: #fffd;
+}
 .ul__nav{ 
+  flex-wrap: wrap;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.item{
-  padding: 15px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-}
+
 .main-nav img{
   height: 60px;
   width: auto;
