@@ -10,7 +10,7 @@
                     <img src="@deporte.Foto" class="card-img-top" alt="Imagen-Deporte">
                     <div class="card-body">
                         <h5 class="card-title">@deporte.Nombre</h5>
-                        <a href="#" class="btn btn-primary">Ver Deporte</a>
+                        <a href='@Url.Action("VerDetalleDeporte", "Home", new{idDeporte = deporte.IdDeporte})' class="btn btn-primary">Ver Deporte</a>
                     </div>
                 </div>
             </div>

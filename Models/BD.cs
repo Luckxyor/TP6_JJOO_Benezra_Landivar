@@ -4,9 +4,11 @@ static class BD{
     private static string _connectionString="Server=localhost; DataBase=JJOO; Trusted_Connection=True;";
 
     public static void AgregarDeportista(Deportista dep){
-        string sql="Insert Into Deportistas (IdDeportista, Apellido, Nombre, FechaNacimiento, Foto, IdPais, IdDeporte) values (@pIdDeportista, @pApellido, @pNombre, @pFechaNacimiento, @pFoto, @pIdPais, @pIdDeporte)";
+        string sqlUltimoId="Select max(IdDeportista) from Deportistas";
+        string sqlInsert="Insert Into Deportistas (IdDeportista, Apellido, Nombre, FechaNacimiento, Foto, IdPais, IdDeporte) values (@pIdDeportista, @pApellido, @pNombre, @pFechaNacimiento, @pFoto, @pIdPais, @pIdDeporte)";
         using(SqlConnection db=new SqlConnection(_connectionString)){
-            db.Execute(sql, new{pIdDeportista=dep.IdDeportista, pApellido=dep.Apellido, pNombre=dep.Nombre, pFechaNacimiento=dep.FechaNacimiento, pFoto=dep.Foto, pIdPais=dep.IdPais, pIdDeporte=dep.IdDeporte});
+            int IdLibre=db.QueryFirst<int>(sqlUltimoId);
+            db.Execute(sqlInsert, new{pIdDeportista= IdLibre, pApellido=dep.Apellido, pNombre=dep.Nombre, pFechaNacimiento=dep.FechaNacimiento, pFoto=dep.Foto, pIdPais=dep.IdPais, pIdDeporte=dep.IdDeporte});
         }
     }
     public static void EliminarDeportista(int idDeportista){
@@ -18,7 +20,7 @@ static class BD{
     public static Deporte VerInfoDeporte(int idDeporte){
         Deporte DeporteElegido=null;
         using(SqlConnection db=new SqlConnection(_connectionString)){
-            string sql= "Select IdDeporte from Deportes where IdDeporte=@pIdDeporte";
+            string sql= "Select * from Deportes where IdDeporte=@pIdDeporte";
             DeporteElegido=db.QueryFirstOrDefault<Deporte>(sql, new{pIdDeporte=idDeporte});
         }
         return DeporteElegido;
@@ -26,7 +28,7 @@ static class BD{
     public static Pais VerInfoPais(int idPais){
         Pais PaisElegido=null;
         using(SqlConnection db=new SqlConnection(_connectionString)){
-            string sql= "Select IdPais from Paises where IdPais=@pIdPais";
+            string sql= "Select * from Paises where IdPais=@pIdPais";
             PaisElegido=db.QueryFirstOrDefault<Pais>(sql, new{pIdPais=idPais});
         }
         return PaisElegido;
@@ -47,7 +49,7 @@ static class BD{
         }
         return ListaPaises;
     }
-    public static List<Deporte> ListarDeporte(){
+    public static List<Deporte> ListarDeportes(){
         List<Deporte> ListaDeportes = new List<Deporte>();
         using(SqlConnection conn = new SqlConnection(_connectionString)){
             string sql="SELECT * FROM Deportes";
@@ -59,7 +61,7 @@ static class BD{
         List<Deportista> ListaDeportista = new List<Deportista>();
         using(SqlConnection conn = new SqlConnection(_connectionString)){
             string sql="SELECT * FROM Deportistas where IdDeporte=@pIdDeporte";
-            ListaDeportista = conn.Query<Deportista>(sql,new{IdDeporte=idDeporte}).ToList();
+            ListaDeportista = conn.Query<Deportista>(sql,new{pIdDeporte=idDeporte}).ToList();
         }
         return ListaDeportista;
     }

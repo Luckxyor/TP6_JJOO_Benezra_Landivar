@@ -19,7 +19,7 @@ public class HomeController : Controller
     }
 
     public IActionResult Deportes(){
-        ViewBag.ListaDeportes=BD.ListarDeporte();
+        ViewBag.ListaDeportes=BD.ListarDeportes();
         return View();
     }
 
@@ -46,11 +46,14 @@ public class HomeController : Controller
     }
 
     public IActionResult AgregarDeportista(){
+        ViewBag.ListaPaises=BD.ListarPaises();
+        ViewBag.ListaDeportes=BD.ListarDeportes();
         return View("AgregarDeportista");
     }
 
     [HttpPost]
     public IActionResult GuardarDeportista(Deportista dep){
+        BD.AgregarDeportista(dep);
         return View("Index");
     }
 
