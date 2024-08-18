@@ -1,39 +1,41 @@
 @{
     ViewData["Title"] = "Agregar Deportista";
 }
-
-<form action='@Url.Action("GuardarDeportista", "Home")' method="post">
-    <fieldset>
-        <legend>INFORMACIÓN BASICA</legend>
-        <label>Apellido:
-            <input type="text" name="Apellido" required minlength="3" placeholder="Apellidos">
-        </label>
-        <label>Nombre:
-            <input type="text" name="Nombre" required minlength="3" placeholder="Nombres">
-        </label>
-        <label>Fecha de Nacimiento:
-            <input type="date">
-        </label>
-        <label>Foto:
-            <input type="text" name="Foto" placeholder="URL">
-        </label>
-    </fieldset>
-    <fieldset>
-        <legend>Comites a los que pertenece:</legend>
-        <label>País:
-            <select>
-                @foreach(Pais pais in ViewBag.ListaPaises){
-                    <option value="@pais.IdPais">@pais.Nombre</option>
-                }
-            </select>
-        </label>
-        <label>Deporte:
-            <select>
-                @foreach(Deporte deporte in ViewBag.ListaDeportes){
-                    <option value="@deporte.IdDeporte">@deporte.Nombre</option>
-                }
-            </select>
-        </label>
-    </fieldset>
-    <input type="submit">
-</form>
+<div class="main">
+<h1>Agregar Deportista:</h1>
+    <form action='@Url.Action("GuardarDeportista", "Home")' method="post">
+        <fieldset>
+            <legend>INFORMACIÓN BASICA</legend>
+            <label>Apellido:
+                <input type="text" name="Apellido" required minlength="3" placeholder="Apellidos">
+            </label>
+            <label>Nombre:
+                <input type="text" name="Nombre" required minlength="3" placeholder="Nombres">
+            </label>
+            <label>Fecha de Nacimiento:
+                <input type="date">
+            </label>
+            <label>Foto:
+                <input type="text" name="Foto" placeholder="URL">
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Comites a los que pertenece:</legend>
+            <label>País:
+                <select>
+                    @foreach(Pais pais in ViewBag.ListaPaises){
+                        <option value="@pais.IdPais">@pais.Nombre</option>
+                    }
+                </select>
+            </label>
+            <label>Deporte:
+                <select>
+                    @foreach(Deporte deporte in ViewBag.ListaDeportes){
+                        <option value="@deporte.IdDeporte">@deporte.Nombre</option>
+                    }
+                </select>
+            </label>
+        </fieldset>
+        <input type="submit">
+    </form>
+</div>

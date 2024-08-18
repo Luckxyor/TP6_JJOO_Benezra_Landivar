@@ -13,11 +13,12 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
+  background-color: #3EB0c4 !important;
 }
 
 /*INICIO NAVEGADOR*/
 
-header{
+.header-index{
   height: 100vh;
   box-sizing: border-box;
   background-image: url(https://estaticos-cdn.prensaiberica.es/clip/936c0394-b6a0-46ee-8176-ef866601198a_source-aspect-ratio_default_0.jpg);
@@ -38,11 +39,11 @@ header, .header-overlay{
 .main-nav{
   padding: 2px;
   position: fixed;
-  width: 70%;
+  width: 60%;
   background-color: #fff9;
   border-radius: 15px;
   top:5px;
-  left: 15%;
+  left: 20%;
   z-index: 2;
 }
 .main-nav .ul__nav{
@@ -78,6 +79,9 @@ header, .header-overlay{
 
 /*FIN NAVEGADOR*/
 
+.main{
+  margin-top: 10vh !important;
+}
 .col{
   padding: 50px
 }
@@ -87,7 +91,42 @@ form{
 
 h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 70px;
+  font-size: 70px !important;
+}
+
+p{
+  text-wrap:balance;
+  margin-left: 5px;
+}
+
+.historia p{
+  font-size: 25px;
+}
+.historia img{
+  height: 400px;
+  width: auto;
+  margin: 10px;
+  margin-left: 5px;
+}
+.card {
+  background-color: #f8f1e4; 
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card-title {
+  color: #b15d1f; 
+  font-weight: bold;
+}
+.container {
+  margin-top: 15px;
+}
+.card-img-top {
+  border-radius: 15px 15px 0 0;
 }
 
 footer {

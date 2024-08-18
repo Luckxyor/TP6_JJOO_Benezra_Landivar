@@ -22,6 +22,9 @@ public class HomeController : Controller
         ViewBag.ListaDeportes=BD.ListarDeportes();
         return View();
     }
+    public IActionResult Historia(){
+        return View();
+    }
 
     public IActionResult Paises(){
         ViewBag.ListaPaises=BD.ListarPaises();
