@@ -1,18 +1,20 @@
 @{
     ViewData["Title"] = "Detalle Deporte";
 }
-<h1>@ViewBag.DeporteElegido.Nombre</h1>
-<div class="container text-center">
-    <div class="row">
-        @foreach(Deportista deportista in ViewBag.ListaDeportistas){
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="@deportista.Foto" class="card-img-top" alt="Imagen-Deporte">
-                    <div class="card-body">
-                        <h5 class="card-title">@deportista.Nombre</h5>
+<div class="main">
+    <h1>@ViewBag.DeporteElegido.Nombre</h1>
+    <div class="container text-center">
+        <div class="row">
+            @foreach(Deportista deportista in ViewBag.ListaDeportistas){
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="@deportista.Foto" class="card-img-top" alt="Imagen-Deporte">
+                        <div class="card-body">
+                            <h5 class="card-title">@deportista.Nombre</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>

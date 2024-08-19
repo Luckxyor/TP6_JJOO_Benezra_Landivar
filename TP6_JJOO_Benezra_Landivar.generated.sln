@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP6_JJOO_Benezra_Landivar", "TP6_JJOO_Benezra_Landivar.csproj", "{835266DF-A90B-41F4-87D0-2C09BF80C87B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP6_JJOO_Benezra_Landivar", "TP6_JJOO_Benezra_Landivar.csproj", "{9C1B7670-7338-44D9-8663-016C0E3BE0F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{835266DF-A90B-41F4-87D0-2C09BF80C87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{835266DF-A90B-41F4-87D0-2C09BF80C87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{835266DF-A90B-41F4-87D0-2C09BF80C87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{835266DF-A90B-41F4-87D0-2C09BF80C87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1B7670-7338-44D9-8663-016C0E3BE0F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1B7670-7338-44D9-8663-016C0E3BE0F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1B7670-7338-44D9-8663-016C0E3BE0F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1B7670-7338-44D9-8663-016C0E3BE0F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
