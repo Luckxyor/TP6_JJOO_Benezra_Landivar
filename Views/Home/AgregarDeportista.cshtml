@@ -7,29 +7,29 @@
         <fieldset>
             <legend>INFORMACIÓN BASICA</legend>
             <label>Apellido:
-                <input type="text" id="Apellido" required minlength="3" placeholder="Apellidos">
+                <input type="text" name="Apellido" required minlength="3" placeholder="Apellidos">
             </label>
             <label>Nombre:
-                <input type="text" id="Nombre" required minlength="3" placeholder="Nombres">
+                <input type="text" name="Nombre" required minlength="3" placeholder="Nombres">
             </label>
             <label>Fecha de Nacimiento:
-                <input type="date" id="FechaNacimiento">
+                <input type="date" name="FechaNacimiento">
             </label>
             <label>Foto:
-                <input type="text" id="Foto" placeholder="URL">
+                <input type="text" name="Foto" placeholder="URL">
             </label>
         </fieldset>
         <fieldset>
             <legend>Comites a los que pertenece:</legend>
             <label>País:
-                <select id="IdPais">
+                <select name="IdPais">
                     @foreach(Pais pais in ViewBag.ListaPaises){
                         <option value="@pais.IdPais">@pais.Nombre</option>
                     }
                 </select>
             </label>
             <label>Deporte:
-                <select id="IdDeporte">
+                <select name="IdDeporte">
                     @foreach(Deporte deporte in ViewBag.ListaDeportes){
                         <option value="@deporte.IdDeporte">@deporte.Nombre</option>
                     }

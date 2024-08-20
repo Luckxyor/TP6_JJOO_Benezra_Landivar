@@ -4,11 +4,9 @@ static class BD{
     private static string _connectionString="Server=localhost; DataBase=JJOO; Trusted_Connection=True;";
 
     public static void AgregarDeportista(Deportista dep){
-        string sqlUltimoId="Select max(IdDeportista) from Deportistas";
-        string sqlInsert="Insert Into Deportistas (IdDeportista, Apellido, Nombre, FechaNacimiento, Foto, IdPais, IdDeporte) values (@pIdDeportista, @pApellido, @pNombre, @pFechaNacimiento, @pFoto, @pIdPais, @pIdDeporte)";
+        string sqlInsert="Insert Into Deportistas (Apellido, Nombre, FechaNacimiento, Foto, IdPais, IdDeporte) values (@pApellido, @pNombre, @pFechaNacimiento, @pFoto, @pIdPais, @pIdDeporte)";
         using(SqlConnection db=new SqlConnection(_connectionString)){
-            int IdLibre=db.QueryFirst<int>(sqlUltimoId);
-            db.Execute(sqlInsert, new{pIdDeportista= IdLibre, pApellido=dep.Apellido, pNombre=dep.Nombre, pFechaNacimiento=dep.FechaNacimiento, pFoto=dep.Foto, pIdPais=dep.IdPais, pIdDeporte=dep.IdDeporte});
+            db.Execute(sqlInsert, new{pApellido=dep.Apellido, pNombre=dep.Nombre, pFechaNacimiento=dep.FechaNacimiento, pFoto=dep.Foto, pIdPais=dep.IdPais, pIdDeporte=dep.IdDeporte});
         }
     }
     public static void EliminarDeportista(int idDeportista){
@@ -36,7 +34,7 @@ static class BD{
     public static Deportista VerInfoDeportista(int idDeportista){
         Deportista DeportistaElegido=null;
         using(SqlConnection db=new SqlConnection(_connectionString)){
-            string sql= "Select IdDeportista from Deportistas where IdDeportista=@pIdDeportista";
+            string sql= "Select * from Deportistas where IdDeportista=@pIdDeportista";
             DeportistaElegido=db.QueryFirstOrDefault<Deportista>(sql, new{pIdDeportista=idDeportista});
         }
         return DeportistaElegido;
