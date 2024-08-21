@@ -6,7 +6,7 @@
 </div>
 <div class="main">
 <h1>Agregar Deportista:</h1>
-    <form action='@Url.Action("GuardarDeportista", "Home")' method="post">
+    <form action='@Url.Action("ProcesarForm", "Home")' method="post">
         <fieldset>
             <legend>INFORMACIÓN BASICA</legend>
             <label>Apellido:
@@ -39,6 +39,7 @@
                 </select>
             </label>
         </fieldset>
-        <input type="submit">
+        <button type="submit" name="accion" value="Agregar" class="btn btn-outline-info">Agregar Deportista</button>
+        <button type="submit" name="accion" value="Eliminar" class="btn btn-outline-danger">Eliminar Deportista</button>
     </form>
 </div>

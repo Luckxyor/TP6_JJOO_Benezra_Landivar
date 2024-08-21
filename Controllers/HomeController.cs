@@ -57,13 +57,23 @@ public class HomeController : Controller
     }
 
     [HttpPost]
+    public IActionResult ProcesarForm(Deportista deportista, string accion){
+        if (accion == "Agregar")
+        {
+            return RedirectToAction("GuardarDeportista", deportista);
+        }
+        else{
+            return RedirectToAction("EliminarDeportista", deportista);
+        }
+    }
     public IActionResult GuardarDeportista(Deportista dep){
         BD.AgregarDeportista(dep);
         return View("Index");
     }
 
-    public IActionResult EliminarDeportista(int idCandidato){
-        return View();
+    public IActionResult EliminarDeportista(Deportista deportista){
+        BD.EliminarDeportista(deportista.Nombre, deportista.Apellido);
+        return View("Index");
     }
 
     public IActionResult Creditos(){
