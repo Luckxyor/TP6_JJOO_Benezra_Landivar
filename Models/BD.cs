@@ -72,5 +72,21 @@ static class BD{
         return ListaDeportista;
     }
     
+    public static Pais PaisxDeportista(int idDeportista){
+        Pais PaisElegido=null;
+        using(SqlConnection db=new SqlConnection(_connectionString)){
+            string sql= "Select Paises.* from Deportistas inner join Paises on Paises.IdPais = Deportistas.IdPais where IdDeportista=@pIdDeportista";
+            PaisElegido=db.QueryFirstOrDefault<Pais>(sql, new{pIdDeportista=idDeportista});
+        }
+        return PaisElegido;
+    }
+    public static Deporte DeportexDeportista(int idDeportista){
+        Deporte DeporteElegido=null;
+        using(SqlConnection db=new SqlConnection(_connectionString)){
+            string sql= "Select Deportes.* from Deportistas inner join Deportes on Deportes.IdDeporte = Deportistas.IdDeporte where IdDeportista=@pIdDeportista";
+            DeporteElegido=db.QueryFirstOrDefault<Deporte>(sql, new{pIdDeportista=idDeportista});
+        }
+        return DeporteElegido;
+    }
 }
 

@@ -1,6 +1,9 @@
 @{
     ViewData["Title"] = "Detalle Deporte";
 }
+<div class="header-pages">
+    <div class="header-overlay"></div>
+</div>
 <div class="main">
     <h1>@ViewBag.DeporteElegido.Nombre:</h1>
     <div class="flexbox">
@@ -8,7 +11,7 @@
             <a href='@Url.Action("VerDetalleDeportista", "Home", new{idDeportista = deportista.IdDeportista})'>
                 <div class="item card">
                     <img src="@deportista.Foto">
-                    <h2>@deportista.Nombre</h2>
+                    <h2>@deportista.Nombre @deportista.Apellido</h2>
                 </div>
             </a>
         }

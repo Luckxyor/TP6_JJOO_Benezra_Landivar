@@ -19,24 +19,39 @@ body {
 /*INICIO NAVEGADOR*/
 
 .header-index{
+  display: flex;
   height: 100vh;
   box-sizing: border-box;
-  background-image: url(https://estaticos-cdn.prensaiberica.es/clip/936c0394-b6a0-46ee-8176-ef866601198a_source-aspect-ratio_default_0.jpg);
   background-position: center;
+  align-items: end;
+}
+.header-pages{
+  background-position: center;
+  height: 50vh;
+}
+
+.header-index, .header-pages{
+  background-image: url(https://estaticos-cdn.prensaiberica.es/clip/936c0394-b6a0-46ee-8176-ef866601198a_source-aspect-ratio_default_0.jpg);
+}
+
+.header-index h1{
+  font-size: 160px !important;
+  color: #000;
+  -webkit-text-stroke: 1px #fff9;
+  z-index: 1;
 }
 
 .header-overlay{
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: absolute;
-  background: linear-gradient(#000b, transparent);
+  background: linear-gradient(#000, #fff8);
+}
+.header-pages .header-overlay{
+  height: 50vh;
 }
 
-header, .header-overlay{
-  box-sizing: border-box;
-}
-
-.main-nav{
+#main-nav{
   padding: 2px;
   position: fixed;
   width: 60%;
@@ -45,24 +60,27 @@ header, .header-overlay{
   top:5px;
   left: 20%;
   z-index: 2;
+  transition-property: width;
+  transition-duration: 0.5s;
 }
-.main-nav .ul__nav{
+#main-nav .ul__nav{
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
-.main-nav a{
+#main-nav a{
   display: inline-block;
   padding: 2px 3px;
   border-radius: 15px;
   transition-property: background-color;
   transition-duration: 0.4s;
 }
-.main-nav .item-nav a{
+#main-nav .item-nav a{
   padding: 5px 11px;
   color: #000;
   text-decoration: none;
 }
-.main-nav a:hover{
+#main-nav a:hover{
   background-color: #fffd;
 }
 .ul__nav{ 
@@ -72,35 +90,55 @@ header, .header-overlay{
   padding: 0;
   margin: 0;
 }
-.main-nav img{
+#main-nav img{
   height: 60px;
   width: auto;
 }
 
+#main-nav.scrolled {
+  width: 100%;
+  border-radius: 0;
+  background-color: #000d;
+  top:0;
+  left: 0;
+}
+#main-nav.scrolled .item-nav a{
+  color: #fff;
+}
+#main-nav.scrolled img{
+  background-color: #fffa;
+  border-radius: 15px;
+  padding: 0px 11px;
+}
+#main-nav.scrolled a:hover{
+  background-color: rgba(129, 129, 129, 0.867);
+}
+
 /*FIN NAVEGADOR*/
 
-.main{
-  margin-top: 10vh !important;
-}
-.col{
-  padding: 50px
-}
+
 form{
   text-align: center;
 }
 h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 70px !important;
+  font-size: 100px !important;
 }
 legend{
-  font-size: 40px;
+  font-size: 40px !important;
 }
 p{
   text-wrap:balance;
   margin-left: 5px;
 }
-
-.historia p{
+a{
+  text-decoration: none !important;
+}
+h2{
+  font-size: 40px !important;
+  margin: 5px !important;
+}
+.historia p, .main>p{
   font-size: 25px;
 }
 .historia img{
@@ -114,12 +152,11 @@ p{
   border: none;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  
 }
-.card, .historia img{
+.card, .historia img, .flexbox>img{
   transition: transform 0.2s;
 }
-.card:hover, .historia img:hover {
+.card:hover, .historia img:hover, .flexbox>img:hover {
   transform: scale(1.05);
 }
 .card-title {
@@ -145,10 +182,37 @@ p{
   margin: 10px;
 }
 .item img{
-  height: 300px;
+  height: 350px;
   width: auto;
   border-radius: 15px;
 }
+.flexbox>img{
+  height: 300px;
+  width: auto;
+  display: inline-block;
+  margin: 10px;
+}
+
+.deportista{
+  background-color: #bbb;
+  display: flex;
+  align-items: center;
+}
+.deportista img{
+  padding: 10px;
+  width: auto;
+  height: 300px;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 25px;
+}
+.deportista p{
+  font-size: 50px !important;
+}
+.deportista div{
+  flex-direction: column;
+}
+
 
 footer {
   margin-top: 10px;

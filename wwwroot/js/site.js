@@ -1,4 +1,11 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header-pages, .header-index');
+    const nav = document.getElementById('main-nav');
+    const headerHeight = header.getBoundingClientRect().height;
 
-// Write your JavaScript code.
+    if (window.scrollY > headerHeight-70) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});

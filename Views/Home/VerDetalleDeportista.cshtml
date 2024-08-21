@@ -1,8 +1,39 @@
 @{
     ViewData["Title"] = "Deportista";
+    DateTime fechaNacimiento = ViewBag.DeportistaElegido.FechaNacimiento;
+    DateTime fechaActual = DateTime.Now;
+    int edad = fechaActual.Year - fechaNacimiento.Year;
+    if (fechaActual < fechaNacimiento.AddYears(edad))
+    {
+        edad--;
+    }
 }
+<div class="header-pages">
+    <div class="header-overlay"></div>
+</div>
 <div class="main">
     <h1>@ViewBag.DeportistaElegido.Nombre @ViewBag.DeportistaElegido.Apellido</h1>
-    <img src="@ViewBag.DeportistaElegido.Foto">
-    <p>@ViewBag.DeportistaElegido.FechaNacimiento
+    <div class="deportista">
+        <div>
+            <img src="@ViewBag.DeportistaElegido.Foto">
+            <div>
+                <p>Fecha de Nacimiento: @ViewBag.DeportistaElegido.FechaNacimiento.ToString("dd/mm/yyyy")</p>
+                <p>Edad: @edad años</p>
+            </div>
+            <div class="flexbox">
+                <a href='@Url.Action("VerDetallePais", "Home", new{idPais = ViewBag.PaisDeportista.IdPais})'>
+                    <div class="item card">
+                        <img src="@ViewBag.PaisDeportista.Bandera">
+                        <h2>@ViewBag.PaisDeportista.Nombre</h2>
+                    </div>
+                </a>
+                <a href='@Url.Action("VerDetalleDeporte", "Home", new{idDeporte = ViewBag.DeporteDeportista.IdDeporte})'>
+                    <div class="item card">
+                        <img src="@ViewBag.DeporteDeportista.Foto">
+                        <h2>@ViewBag.DeporteDeportista.Nombre</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
