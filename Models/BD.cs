@@ -9,10 +9,10 @@ static class BD{
             db.Execute(sqlInsert, new{pApellido=dep.Apellido, pNombre=dep.Nombre, pFechaNacimiento=dep.FechaNacimiento, pFoto=dep.Foto, pIdPais=dep.IdPais, pIdDeporte=dep.IdDeporte});
         }
     }
-    public static void EliminarDeportista(string Nombre, string Apellido){
-        string sql="Delete from Deportistas where Apellido=@pApellido and Nombre=@pNombre";
+    public static void EliminarDeportista(Deportista dep){
+        string sql="Delete from Deportistas where Apellido=@pApellido and Nombre=@pNombre and FechaNacimiento=@pFechaNacimiento and IdPais=@pIdPais and IdDeporte=@pIdDeporte";
         using(SqlConnection db=new SqlConnection(_connectionString)){
-            db.Execute(sql, new{pApellido=Apellido, pNombre=Nombre});
+            db.Execute(sql, new{pApellido=dep.Apellido, pNombre=dep.Nombre, pFechaNacimiento=dep.FechaNacimiento, pIdPais=dep.IdPais, pIdDeporte=dep.IdDeporte});
         }
     }
     public static Deporte VerInfoDeporte(int idDeporte){
