@@ -14,6 +14,14 @@ body {
   padding: 0px;
   font-family: sans-serif;
   background-color: #fafafa !important;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 100vh;
+}
+
+main, header, footer{
+  width: 100%;
 }
 
 /*INICIO NAVEGADOR*/
@@ -240,8 +248,22 @@ label{
 
 
 footer {
-  margin-top: 10px;
+  text-align: center;
+  margin-top: auto;
   padding: 10px;
-  background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+  background-color: #bbbbbb;
+}
+footer a{
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  margin: 0 3px;
+}
+footer img{
+  width: 20px;
+  height: auto;
+  border-radius: 5px;
+}
+footer p{
+  margin: 5px;
 }
