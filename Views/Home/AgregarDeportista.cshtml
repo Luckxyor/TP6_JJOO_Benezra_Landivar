@@ -16,23 +16,23 @@
                 <input type="text" name="Nombre" required minlength="3" placeholder="Nombres">
             </label>
             <label>Fecha de Nacimiento:
-                <input type="date" name="FechaNacimiento">
+                <input type="date" name="FechaNacimiento" required>
             </label>
             <label>Foto:
-                <input type="text" name="Foto" placeholder="URL">
+                <input type="text" name="Foto" placeholder="URL" required>
             </label>
         </fieldset>
         <fieldset>
             <legend>Comites a los que pertenece:</legend>
             <label>País:
-                <select name="IdPais">
+                <select name="IdPais" required>
                     @foreach(Pais pais in ViewBag.ListaPaises){
                         <option value="@pais.IdPais">@pais.Nombre</option>
                     }
                 </select>
             </label>
             <label>Deporte:
-                <select name="IdDeporte">
+                <select name="IdDeporte" required>
                     @foreach(Deporte deporte in ViewBag.ListaDeportes){
                         <option value="@deporte.IdDeporte">@deporte.Nombre</option>
                     }
